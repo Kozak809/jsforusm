@@ -27,3 +27,13 @@ if (score === null || score.trim() === "" || isNaN(score)) {
 for (let i = 1; i <= 5; i++) {
  console.log(`Итерация: ${i}`);
 }
+
+console.log(varVar); // Работает
+console.log(letVar); // Ошибка: letVar is not defined
+if (true) {
+  var varVar = "я виден везде";
+  let letVar = "я виден только тут";
+}
+console.log(123); // Работает
+console.log(varVar); // Работает
+console.log(letVar); // Ошибка: letVar is not defined
