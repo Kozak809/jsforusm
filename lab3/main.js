@@ -123,13 +123,14 @@ function calculateTotalDebitAmount(transactions) {
  */
 function findMostTransactionsMonth(transactions) {
   if (transactions.length === 0) return null;
+
   const monthCounts = transactions.reduce((counts, t) => {
-    const month = new Date(t.transaction_date).getMonth();
+    const month = new Date(t.transaction_date).getMonth() + 1; // ✅ сразу 1-12
     counts[month] = (counts[month] || 0) + 1;
     return counts;
   }, {});
-  const mostTransactionsMonth = Object.keys(monthCounts).reduce((a, b) => monthCounts[a] > monthCounts[b] ? a : b);
-  return (parseInt(mostTransactionsMonth) + 1).toString(); // Returning month number as string (1-indexed)
+
+  return Object.keys(monthCounts).reduce((a, b) => monthCounts[a] > monthCounts[b] ? a : b);
 }
 
 /**
