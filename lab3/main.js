@@ -125,7 +125,7 @@ function findMostTransactionsMonth(transactions) {
   if (transactions.length === 0) return null;
 
   const monthCounts = transactions.reduce((counts, t) => {
-    const month = new Date(t.transaction_date).getMonth() + 1; // ✅ сразу 1-12
+    const month = new Date(t.transaction_date).getMonth() + 1;
     counts[month] = (counts[month] || 0) + 1;
     return counts;
   }, {});
