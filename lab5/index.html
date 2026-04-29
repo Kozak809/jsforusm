@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Manager</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Financial Tracker</h1>
+
+        <form id="transaction-form" class="transaction-form">
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="0.00" required step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" placeholder="Describe the transaction..." required></textarea>
+            </div>
+            <button type="submit" class="btn-add">Add Transaction</button>
+        </form>
+
+        <!-- Step 3: Transactions Table -->
+        <div class="table-container">
+            <table id="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions-body">
+                    <!-- Transactions will be added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Step 6: Total Amount -->
+        <div class="total-section">
+            <span>Total Balance:</span>
+            <span id="total-amount" class="total-amount">$0.00</span>
+        </div>
+
+        <!-- Step 7: Transaction Details -->
+        <div id="transaction-details">
+            <h3>Transaction Details</h3>
+            <p id="details-content">Click on a row to see more information.</p>
+        </div>
+    </div>
+
+    <script type="module" src="./src/index.js"></script>
+</body>
+
+</html>
