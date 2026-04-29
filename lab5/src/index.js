@@ -45,7 +45,7 @@ function setupEventListeners() {
         }
 
         const newTransaction = {
-            id: generateId(),
+            id: generateId(getTransactions()),
             date: new Date().toISOString(),
             amount: isNaN(parseFloat(amount)) ? 0 : parseFloat(amount),
             category: category,

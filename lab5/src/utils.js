@@ -1,11 +1,19 @@
 /**
  * Generates a unique random identifier for a new transaction.
- * Uses a base-36 string representation of a random number.
+ * Ensures the ID is not already present in the provided list.
  * 
- * @returns {string} A 7-character alphanumeric unique ID.
+ * @param {Array} existingItems - The list of current transactions to check against.
+ * @returns {string} A unique 7-character alphanumeric ID.
  */
-export function generateId() {
-    return Math.random().toString(36).substring(2, 9);
+export function generateId(existingItems = []) {
+    let newId;
+    const existingIds = existingItems.map(item => item.id);
+    
+    do {
+        newId = Math.random().toString(36).substring(2, 9);
+    } while (existingIds.includes(newId));
+    
+    return newId;
 }
 
 /**
