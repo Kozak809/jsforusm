@@ -33,20 +33,20 @@ export const AudioSystem = {
 
     playChip() {
         this.init();
-        // Clack sound (two very short tones)
+        // Звук щелчка (два очень коротких тона)
         this.playTone(2000, 'triangle', 0.05, 0.1);
         setTimeout(() => this.playTone(1500, 'square', 0.05, 0.1), 30);
     },
 
     playClick() {
         this.init();
-        // Short tick for reels spinning
+        // Короткий тик во время вращения барабанов
         this.playTone(800, 'square', 0.02, 0.02);
     },
 
     playReelStop() {
         this.init();
-        // Heavy thud when reel stops
+        // Тяжелый глухой удар при остановке барабана
         this.playTone(150, 'sine', 0.15, 0.3, 50);
     },
 
@@ -65,13 +65,13 @@ export const AudioSystem = {
 
     playWin() {
         this.init();
-        // Major arpeggio
+        // Мажорное арпеджио (до-ми-соль-до)
         const notes = [523.25, 659.25, 783.99, 1046.50]; // C E G C
         notes.forEach((freq, i) => {
             setTimeout(() => this.playTone(freq, 'sine', 0.6, 0.2), i * 150);
         });
         
-        // Add some sparkle
+        // Добавляем эффект блеска/искорок
         for(let i=0; i<10; i++) {
             setTimeout(() => this.playTone(Math.random() * 1000 + 1000, 'triangle', 0.1, 0.05), i * 100);
         }
@@ -79,7 +79,7 @@ export const AudioSystem = {
 
     playLose() {
         this.init();
-        // Descending low tones
+        // Нисходящие низкие тона
         this.playTone(300, 'sawtooth', 0.3, 0.1, 200);
         setTimeout(() => this.playTone(200, 'sawtooth', 0.4, 0.1, 100), 300);
     }

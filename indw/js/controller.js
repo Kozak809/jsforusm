@@ -15,7 +15,7 @@ export const Controller = {
         this.fetchAPI();
     },
 
-    // FETCH API
+    // ЗАПРОСЫ К API (ПОЛУЧЕНИЕ СОВЕТА)
     async fetchAPI() {
         try {
             const res = await fetch('https://api.adviceslip.com/advice');
@@ -26,7 +26,7 @@ export const Controller = {
         }
     },
 
-    // TABS
+    // ВКЛАДКИ (ПЕРЕКЛЮЧЕНИЕ ЭКРАНОВ)
     bindTabs() {
         const tabs = document.querySelectorAll('.tab-btn');
         const views = document.querySelectorAll('.view-section');
@@ -46,7 +46,7 @@ export const Controller = {
         });
     },
 
-    // DRAG & DROP
+    // ПЕРЕТАСКИВАНИЕ (DRAG & DROP ФИШЕК)
     bindDragDrop() {
         const chips = document.querySelectorAll('.chip');
         const dropZone = document.getElementById('dropZone');
@@ -91,7 +91,7 @@ export const Controller = {
         });
     },
 
-    // GAME LOGIC
+    // ИГРОВАЯ ЛОГИКА (ВРАЩЕНИЕ И АВТОИГРА)
     isSpinning: false,
     isAutoSpinning: false,
 
@@ -119,7 +119,7 @@ export const Controller = {
         this.isSpinning = true;
         UI.hideMessage();
 
-        // Валидация
+        // Валидация ставки перед запуском
         if (AppState.currentBet === 0) {
             UI.showMessage('СНАЧАЛА ЗАБРОСЬ ФИШКИ В ЗОНУ СТАВКИ!', 'error');
             this.stopAutoSpin();
@@ -187,6 +187,7 @@ export const Controller = {
             AudioSystem.playWin();
             AppState.balance += payout;
             UI.showMessage(`ДЖЕКПОТ! +$${payout}`, 'win');
+            
             // МЕГА АНИМАЦИЯ ПОБЕДЫ (каскад взрывов конфетти)
             const goldColors = ['#D4AF37', '#FFDF73', '#FFFFFF', '#8C6216'];
             
@@ -199,7 +200,7 @@ export const Controller = {
                 confetti({ particleCount: 150, angle: 120, spread: 80, origin: { x: 1, y: 0.8 }, colors: goldColors, startVelocity: 60 });
             }, 300);
 
-            // Финальный мощный водопад
+            // Финальный взрыв
             setTimeout(() => {
                 confetti({ particleCount: 300, spread: 160, origin: { y: 0.4 }, colors: goldColors, startVelocity: 70, decay: 0.9, scalar: 1.5 });
             }, 800);
@@ -225,7 +226,7 @@ export const Controller = {
         this.updateHistoryTable();
     },
 
-    // HISTORY
+    // ИСТОРИЯ И ФИЛЬТРАЦИЯ
     bindHistory() {
         const search = document.getElementById('searchInput');
         const filter = document.getElementById('filterSelect');
@@ -252,7 +253,7 @@ export const Controller = {
         UI.renderHistory(AppState.getProcessedHistory(s, f, o));
     },
 
-    // MODAL & VALIDATION
+    // МОДАЛЬНОЕ ОКНО И ВАЛИДАЦИЯ ДЕПОЗИТА
     bindModal() {
         const modal = document.getElementById('depositModal');
         const form = document.getElementById('depositForm');

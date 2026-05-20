@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRAND CASINO</title>
+    <title>GRAND CASINO (by Latul)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,7 +37,7 @@
             pointer-events: none;
         }
 
-        /* LUXURY BORDER */
+        /* РОСКОШНАЯ РАМКА */
         .luxury-border {
             border: 2px solid #d4af37;
             border-radius: 16px;
@@ -45,7 +45,7 @@
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.15), inset 0 0 20px rgba(212, 175, 55, 0.05);
         }
 
-        /* MARQUEE FRAME (Лампочки) */
+        /* РАМКА С ЛАМПОЧКАМИ (МАРКИ) */
         .marquee-frame {
             position: relative;
             padding: 32px;
@@ -66,13 +66,13 @@
             z-index: 10;
         }
 
-        /* GLOWING TEXT */
+        /* СВЕТЯЩИЙСЯ ТЕКСТ */
         .text-glow {
             text-shadow: 0 0 5px rgba(255, 223, 115, 0.4);
             color: #FFDF73;
         }
 
-        /* BUTTONS */
+        /* КНОПКИ */
         .luxury-btn {
             background: linear-gradient(to bottom, #FFDF73, #D4AF37);
             color: #1a1a1a;
@@ -102,11 +102,11 @@
             cursor: not-allowed;
         }
 
-        /* SLOT WINDOW */
+        /* ОКНО СЛОТА */
         .slot-window {
             height: 96px;
             overflow: hidden;
-            background: linear-gradient(to right, #e8e3d8, #fffdf7, #e8e3d8); /* Creamy cards color */
+            background: linear-gradient(to right, #e8e3d8, #fffdf7, #e8e3d8); /* Кремовый цвет карт */
             color: #000000;
             position: relative;
             border-radius: 8px;
@@ -138,7 +138,7 @@
             filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
         }
 
-        /* DECORATIONS (Cards & Dice) */
+        /* ДЕКОРАЦИИ (Карты и кубики) */
         .cards-decor {
             position: absolute;
             top: -40px;
@@ -216,7 +216,7 @@
         .die-2 .dot:nth-child(4) { grid-area: 1 / 3; }
         .die-2 .dot:nth-child(5) { grid-area: 3 / 3; }
 
-        /* CHIPS */
+        /* ФИШКИ */
         .chip {
             cursor: grab;
             transition: transform 0.2s;
@@ -283,7 +283,7 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.5) !important;
         }
 
-        /* TABS */
+        /* ВКЛАДКИ */
         .tab-active {
             background: linear-gradient(to bottom, #1a1a1a, #000);
             color: #FFDF73;
@@ -306,13 +306,13 @@
             color: #d4af37;
         }
 
-        /* MODAL */
+        /* МОДАЛЬНОЕ ОКНО */
         .modal-bg {
             background-color: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(8px);
         }
 
-        /* HISTORY TABLE */
+        /* ТАБЛИЦА ИСТОРИИ */
         table {
             border-collapse: separate;
             border-spacing: 0;
@@ -332,7 +332,7 @@
             background-color: #1a1a1a;
         }
 
-        /* SCROLLBAR */
+        /* ПОЛОСА ПРОКРУТКИ */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
@@ -346,7 +346,7 @@
     <div class="fixed inset-0 z-[-1] bg-black/60"></div>
 
     <div class="max-w-5xl mx-auto space-y-8 relative z-10">
-        <!-- HEADER -->
+        <!-- ШАПКА -->
         <header class="luxury-border p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-center gap-6">
             <div class="text-center sm:text-left">
                 <h1 class="text-5xl font-black text-glow">GRAND CASINO</h1>
@@ -365,25 +365,25 @@
             </div>
         </header>
 
-        <!-- TABS -->
+        <!-- ВКЛАДКИ -->
         <div class="flex gap-2 border-b-2 border-yellow-600">
             <button class="tab-btn tab-active font-bold text-xl py-3 px-8" data-target="gameView">АВТОМАТ</button>
             <button class="tab-btn tab-inactive font-bold text-xl py-3 px-8" data-target="historyView">ИСТОРИЯ</button>
         </div>
 
-        <!-- VIEW 1: GAME -->
+        <!-- ЭКРАН 1: ИГРА -->
         <div id="gameView" class="view-section grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            <!-- SLOT MACHINE -->
+            <!-- СЛОТ-МАШИНА -->
             <div class="lg:col-span-2 marquee-frame flex flex-col items-center">
-                <!-- CARDS DECORATION -->
+                <!-- ДЕКОРАЦИЯ КАРТ -->
                 <div class="cards-decor hidden sm:flex">
                     <div class="card card-red"><span>A</span><span class="card-suit">♦</span></div>
                     <div class="card card-black"><span>A</span><span class="card-suit">♣</span></div>
                     <div class="card card-red"><span>A</span><span class="card-suit">♥</span></div>
                     <div class="card card-black"><span>A</span><span class="card-suit">♠</span></div>
                 </div>
-                <!-- DICE DECORATION -->
+                <!-- ДЕКОРАЦИЯ КУБИКОВ -->
                 <div class="dice-decor hidden sm:flex">
                     <div class="die die-1">
                         <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
@@ -418,11 +418,11 @@
                 </div>
             </div>
 
-            <!-- BETTING AREA -->
+            <!-- ЗОНА СТАВОК -->
             <div class="luxury-border p-6 flex flex-col">
                 <h3 class="text-2xl font-black mb-6 text-center text-yellow-500 border-b border-yellow-800 pb-4">СТАВКА</h3>
 
-                <!-- Drop Zone -->
+                <!-- Зона сброса (Drop Zone) -->
                 <div id="dropZone" class="flex-1 border-2 border-dashed border-yellow-600/50 rounded-2xl flex flex-col justify-center items-center p-6 mb-8 transition-all relative">
                     <p class="font-bold text-center text-yellow-700/80 mb-4 tracking-widest">МЕСТО ДЛЯ ФИШЕК</p>
                     <p class="text-5xl font-black text-glow mb-4">$<span id="currentBetDisplay">0</span></p>
@@ -433,7 +433,7 @@
                     <button id="clearBetBtn" class="mt-6 text-sm font-bold text-red-400 border border-red-900/50 px-4 py-2 rounded-full hover:bg-red-900/20 transition-colors">СБРОСИТЬ</button>
                 </div>
 
-                <!-- Chips -->
+                <!-- Фишки -->
                 <div>
                     <p class="font-bold mb-4 text-center text-yellow-700/80 tracking-widest">НОМИНАЛЫ</p>
                     <div class="flex justify-center gap-4 flex-wrap">
@@ -445,7 +445,7 @@
             </div>
         </div>
 
-        <!-- VIEW 2: HISTORY -->
+        <!-- ЭКРАН 2: ИСТОРИЯ -->
         <div id="historyView" class="view-section hidden luxury-border p-6 sm:p-8">
             <h2 class="text-3xl font-black mb-8 text-glow">БАЗА ДАННЫХ</h2>
 
